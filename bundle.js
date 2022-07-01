@@ -1,3 +1,0 @@
-// Copyright (c) 2022 The Stdlib Authors. License is Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
-!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?module.exports=n():"function"==typeof define&&define.amd?define(n):(e="undefined"!=typeof globalThis?globalThis:e||self).transpose=n()}(this,(function(){"use strict";var e=function(e,n){var t,r,o;for(r=e.length,t=0,o=0;o<r;o++)n[o]<0&&(t-=n[o]*(e[o]-1));return t};return function(n){var t,r,o,i;if((i=(r=n.shape).length)<2)throw new Error("invalid argument. Must provide an ndarray having two or more dimensions.");return o=n.strides,t=r[i-2],r[i-2]=r[i-1],r[i-1]=t,t=o[i-2],o[i-2]=o[i-1],o[i-1]=t,new n.constructor(n.dtype,n.data,r,o,e(r,o),n.order)}}));
-//# sourceMappingURL=bundle.js.map
