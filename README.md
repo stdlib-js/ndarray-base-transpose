@@ -54,6 +54,11 @@ limitations under the License.
 To use in Observable,
 
 ```javascript
+transpose = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@umd/browser.js' )
+```
+The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/ndarray-base-transpose/tags). For example,
+
+```javascript
 transpose = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@v0.1.1-umd/browser.js' )
 ```
 
@@ -66,7 +71,7 @@ var transpose = require( 'path/to/vendor/umd/ndarray-base-transpose/index.js' )
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@v0.1.1-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -139,7 +144,7 @@ bool = ( x.get( 0, 1 ) === y.get( 1, 0 ) );
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@v0.1.1-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
