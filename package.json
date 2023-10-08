@@ -37,6 +37,11 @@
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
   "dependencies": {
+    "@stdlib/ndarray-base-data-buffer": "github:stdlib-js/ndarray-base-data-buffer#main",
+    "@stdlib/ndarray-base-dtype": "github:stdlib-js/ndarray-base-dtype#main",
+    "@stdlib/ndarray-base-order": "github:stdlib-js/ndarray-base-order#main",
+    "@stdlib/ndarray-base-shape": "github:stdlib-js/ndarray-base-shape#main",
+    "@stdlib/ndarray-base-strides": "github:stdlib-js/ndarray-base-strides#main",
     "@stdlib/ndarray-base-strides2offset": "^0.1.1",
     "@stdlib/types": "^0.1.0"
   },
