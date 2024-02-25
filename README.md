@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import transpose from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@esm/index.mjs';
+import transpose from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@v0.2.1-esm/index.mjs';
 ```
 
 #### transpose( x )
@@ -117,7 +117,7 @@ bool = ( x.get( 0, 1 ) === y.get( 1, 0 ) );
 import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
 import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@esm/index.mjs';
 import rpad from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@esm/index.mjs';
-import transpose from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@esm/index.mjs';
+import transpose from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@v0.2.1-esm/index.mjs';
 
 function print( arr, name ) {
     var str;
