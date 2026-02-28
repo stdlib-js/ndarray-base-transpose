@@ -45,70 +45,56 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/ndarray-base-transpose
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-transpose = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@umd/browser.js' )
-```
-The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/ndarray-base-transpose/tags). For example,
-
-```javascript
-transpose = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@v0.2.4-umd/browser.js' )
+var transpose = require( '@stdlib/ndarray-base-transpose' );
 ```
 
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var transpose = require( 'path/to/vendor/umd/ndarray-base-transpose/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.transpose;
-})();
-</script>
-```
-
-#### transpose( x )
+#### transpose( x, writable )
 
 Transposes a matrix (or a stack of matrices) `x`.
 
 ```javascript
+var getData = require( '@stdlib/ndarray-data-buffer' );
 var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ [ 1, 2, 3 ], [ 4, 5, 6 ] ] );
-// returns <ndarray>
+// returns <ndarray>[ [ 1, 2, 3 ], [ 4, 5, 6 ] ]
 
-var sh = x.shape;
-// returns [ 2, 3 ]
+var y = transpose( x, false );
+// returns <ndarray>[ [ 1, 4 ], [ 2, 5 ], [ 3, 6 ] ]
 
-var y = transpose( x );
-// returns <ndarray>
-
-sh = y.shape;
-// returns [ 3, 2 ]
-
-var bool = ( x.data === y.data );
-// returns true
-
-bool = ( x.get( 0, 1 ) === y.get( 1, 0 ) );
+var bool = ( getData( x ) === getData( y ) );
 // returns true
 ```
+
+The function accepts the following arguments:
+
+-   **x**: input ndarray.
+-   **writable**: boolean indicating whether a returned ndarray should be writable.
 
 </section>
 
@@ -120,8 +106,9 @@ bool = ( x.get( 0, 1 ) === y.get( 1, 0 ) );
 
 ## Notes
 
--   The returned ndarray is a **view** of the input ndarray. Accordingly, writing to the original ndarray will **mutate** the returned ndarray and vice versa. While powerful, this can lead to subtle bugs. In general, one should handle the returned ndarray as **read-only**.
+-   The returned ndarray is a **view** of the input ndarray. Accordingly, writing to the original ndarray will **mutate** the returned ndarray and vice versa.
 -   If provided an ndarray with fewer than two dimensions, the function raises an exception.
+-   The `writable` parameter **only** applies to ndarray constructors supporting **read-only** instances.
 
 </section>
 
@@ -137,16 +124,11 @@ bool = ( x.get( 0, 1 ) === y.get( 1, 0 ) );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/string-right-pad@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-transpose@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Float64Array = require( '@stdlib/array-float64' );
+var ndarray = require( '@stdlib/ndarray-ctor' );
+var rpad = require( '@stdlib/string-right-pad' );
+var transpose = require( '@stdlib/ndarray-base-transpose' );
 
 function print( arr, name ) {
     var str;
@@ -182,18 +164,13 @@ var buf = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var x = new ndarray( 'float64', buf, [ 2, 2, 3 ], [ 0, 3, 1 ], 0, 'row-major' );
 
 // Transpose the stack of matrices:
-var y = transpose( x );
+var y = transpose( x, false );
 
 // Print the stacks:
 console.log( '' );
 print( x, 'X' );
 console.log( '' );
 print( y, 'Y' );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -261,8 +238,8 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/ndarray-base-transpose.svg
 [npm-url]: https://npmjs.org/package/@stdlib/ndarray-base-transpose
 
-[test-image]: https://github.com/stdlib-js/ndarray-base-transpose/actions/workflows/test.yml/badge.svg?branch=v0.2.4
-[test-url]: https://github.com/stdlib-js/ndarray-base-transpose/actions/workflows/test.yml?query=branch:v0.2.4
+[test-image]: https://github.com/stdlib-js/ndarray-base-transpose/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/ndarray-base-transpose/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/ndarray-base-transpose/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/ndarray-base-transpose?branch=main
@@ -296,7 +273,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/umd
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
 <!-- </related-links> -->
 
