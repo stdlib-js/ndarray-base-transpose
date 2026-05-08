@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-04-01)
+## Unreleased (2026-05-08)
 
 <section class="features">
 
@@ -34,6 +34,7 @@
 
 <details>
 
+-   [`3ca7c21`](https://github.com/stdlib-js/stdlib/commit/3ca7c2179081a36fa279dbb1e12f8e81d811e997) - **docs:** propagate recent `ndarray/base` comment and note fixes to sibling packages [(#11762)](https://github.com/stdlib-js/stdlib/pull/11762) _(by Philipp Burckhardt)_
 -   [`9df924b`](https://github.com/stdlib-js/stdlib/commit/9df924b5f0b773c8b06d06b40e54dee75059ce08) - **feat:** add writable parameter support to `ndarray/base/transpose` (#10474) [(#10474)](https://github.com/stdlib-js/stdlib/pull/10474) _(by Muhammad Haris, Athan Reines)_
 
 </details>
@@ -46,10 +47,11 @@
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 3 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
 -   Muhammad Haris
+-   Philipp Burckhardt
 
 </section>
 
