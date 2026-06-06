@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-05-08)
+## Unreleased (2026-06-06)
 
 <section class="features">
 
@@ -34,6 +34,7 @@
 
 <details>
 
+-   [`727a69c`](https://github.com/stdlib-js/stdlib/commit/727a69cb34991e322acd1fc76c828a7243faf96f) - **refactor:** remove redundant overload in `ndarray/base/transpose` [(#12632)](https://github.com/stdlib-js/stdlib/pull/12632) _(by Philipp Burckhardt)_
 -   [`3ca7c21`](https://github.com/stdlib-js/stdlib/commit/3ca7c2179081a36fa279dbb1e12f8e81d811e997) - **docs:** propagate recent `ndarray/base` comment and note fixes to sibling packages [(#11762)](https://github.com/stdlib-js/stdlib/pull/11762) _(by Philipp Burckhardt)_
 -   [`9df924b`](https://github.com/stdlib-js/stdlib/commit/9df924b5f0b773c8b06d06b40e54dee75059ce08) - **feat:** add writable parameter support to `ndarray/base/transpose` (#10474) [(#10474)](https://github.com/stdlib-js/stdlib/pull/10474) _(by Muhammad Haris, Athan Reines)_
 
